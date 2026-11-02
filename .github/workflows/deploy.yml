@@ -1,12 +1,19 @@
-name: Ada Tours EN — test shared deployment workflow
+name: Ada Tours EN — publish from canonical Astro repository
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * *'
 permissions:
   contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: en-pages
+  cancel-in-progress: false
 jobs:
   publish:
-    uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-call-smoke.yml@feat/english-site-foundation
+    uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@feat/english-site-foundation
