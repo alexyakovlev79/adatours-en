@@ -1,4 +1,5 @@
 name: Ada Tours EN — publish from canonical Astro repository
+run-name: EN staging — canonical Ada Tours source
 on:
   push:
     branches: [main]
