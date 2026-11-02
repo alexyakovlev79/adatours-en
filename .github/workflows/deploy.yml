@@ -17,6 +17,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    # Refresh staging from canonical main after RU/EN discovery PR #71 (47085975).
+    # Refresh staging from canonical main after verified full RU fallback PR #72 (5b942e17).
     # This repository holds only the caller; shared data and prices remain in adatours.ru.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
