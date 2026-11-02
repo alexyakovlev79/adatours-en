@@ -17,6 +17,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    # Refresh staging from canonical main after verified full RU fallback PR #72 (5b942e17).
+    # Refresh staging from canonical main after verified route-fix PR #74 (ea72d15e).
+    # The reusable workflow always builds the latest canonical source; no content is copied here.
     # This repository holds only the caller; shared data and prices remain in adatours.ru.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
