@@ -1,19 +1,15 @@
-name: Ada Tours EN — publish from canonical Astro repository
+name: Ada Tours EN — validate GitHub Actions initialization
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
-  schedule:
-    - cron: '17 5 * * *'
 permissions:
   contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: en-pages
-  cancel-in-progress: false
 jobs:
-  publish:
-    uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@feat/english-site-foundation
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify Actions can schedule a job
+        run: echo "Ada Tours EN Actions runner is available"
