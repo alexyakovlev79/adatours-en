@@ -19,4 +19,4 @@ jobs:
   publish:
     # Verify RU main reconciliation in source commit 85d75c6 before merging PR #59.
     # Shared code, layouts, prices and media remain exclusively in adatours.ru.
-    uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@feat/english-site-foundation
+    uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
