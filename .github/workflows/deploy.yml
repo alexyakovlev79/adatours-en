@@ -16,4 +16,5 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
+    # Shared code, layouts, prices and media remain exclusively in adatours.ru.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@feat/english-site-foundation
