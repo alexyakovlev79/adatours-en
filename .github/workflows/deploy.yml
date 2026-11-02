@@ -1,4 +1,4 @@
-name: Ada Tours EN — validate GitHub Actions initialization
+name: Ada Tours EN — test shared deployment workflow
 on:
   push:
     branches: [main]
@@ -8,8 +8,5 @@ on:
 permissions:
   contents: read
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Verify Actions can schedule a job
-        run: echo "Ada Tours EN Actions runner is available"
+  publish:
+    uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-call-smoke.yml@feat/english-site-foundation
