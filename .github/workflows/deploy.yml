@@ -17,6 +17,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    # Verify RU main reconciliation in source commit 85d75c6 before merging PR #59.
-    # Shared code, layouts, prices and media remain exclusively in adatours.ru.
+    # Refresh staging from canonical main after RU/EN discovery PR #71 (47085975).
+    # This repository holds only the caller; shared data and prices remain in adatours.ru.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
