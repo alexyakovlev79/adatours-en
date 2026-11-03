@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    # Publish complete shared templates with approved English fields from adatours.ru/main (3125e0d).
-    # The shared workflow verifies all 6,149 routes, accepted text receipts and per-field RU fallback.
+    # Publish complete shared templates with approved English fields from adatours.ru/main (08c51a2).
+    # The shared workflow verifies full routes, accepted fields, composite catalogue labels and RU fallback.
     # This repository holds only the caller; shared data and prices remain in adatours.ru.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
