@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    # Publish the source-bound English-first canonical routes from adatours.ru/main (57020af).
-    # The shared workflow checks translated page precedence, canonical URLs and RU fallback.
+    # Publish complete shared templates with approved English fields from adatours.ru/main (3125e0d).
+    # The shared workflow verifies all 6,149 routes, accepted text receipts and per-field RU fallback.
     # This repository holds only the caller; shared data and prices remain in adatours.ru.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
