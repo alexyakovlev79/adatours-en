@@ -7,7 +7,7 @@ on:
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
   schedule:
-    - cron: '17 5 * * *'
+    - cron: '17 * * * *'
 permissions:
   contents: read
   pages: write
@@ -16,11 +16,46 @@ concurrency:
   group: en-pages
   cancel-in-progress: false
 jobs:
+  refresh-needed:
+    runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.compare.outputs.publish }}
+    steps:
+      - name: Skip unchanged EN translation snapshots on hourly schedule
+        id: compare
+        shell: bash
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          publish = os.getenv('GITHUB_EVENT_NAME') != 'schedule'
+          info = 'forced by workflow event'
+          if not publish:
+              try:
+                  def fetch_json(url):
+                      request=urllib.request.Request(url,headers={
+                          'User-Agent':'AdaTours-EN-translation-release',
+                          'Accept':'application/vnd.github+json'})
+                      with urllib.request.urlopen(request,timeout=12) as response:
+                          return json.load(response)
+                  prefix='https://api.github.com/repos/alexyakovlev79/adatours.ru/git/ref/heads/'
+                  main_sha=fetch_json(prefix+'main')['object']['sha']
+                  mass_sha=fetch_json(prefix+'i18n/translation-mass-staging')['object']['sha']
+                  receipt=fetch_json('https://alexyakovlev79.github.io/adatours-en/translation-receipt.json')
+                  published_main=receipt.get('canonicalSourceSha')
+                  published_mass=(receipt.get('massReviewPreviewSnapshot') or {}).get('sha')
+                  publish=published_main!=main_sha or published_mass!=mass_sha
+                  info='changed snapshot' if publish else 'canonical and translation snapshots unchanged'
+              except Exception as exc:
+                  publish=True
+                  info='receipt unavailable; rebuilding: '+type(exc).__name__
+          print(info)
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf8') as target:
+              target.write('publish='+str(publish).lower()+'\n')
+          PY
   publish:
-    # Refresh shared canonical site with owner-authorized noindex preview of saved EN review packages.
-    # The shared workflow verifies full routes, accepted fields, all MC/VIP/home card labels and RU fallback.
-    # This repository holds only the caller; shared data and prices remain in adatours.ru.
+    needs: refresh-needed
+    if: needs.refresh-needed.outputs.publish == 'true'
+    # Publish immutable saved EN translations; independent editorial QA is deferred.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
-# EN menu localization refresh 2026-11-05: canonical b58fb8065cd62b235e07ed89f88e5c9515379596
-# 2026-11-05 EN menu locale fix from canonical commit 15cb315a963b302e5dc2804226df0bcbff9a261b
-# EN nav remaining Cyrillic diagnostic 2026-11-05 canonical 6da9d0bb1bd0b066b42aa211dbccf32843c1cc6f
