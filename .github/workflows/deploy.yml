@@ -22,3 +22,4 @@ jobs:
     # This repository holds only the caller; shared data and prices remain in adatours.ru.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
 # EN menu localization refresh 2026-11-05: canonical b58fb8065cd62b235e07ed89f88e5c9515379596
+# 2026-11-05 EN menu locale fix from canonical commit 15cb315a963b302e5dc2804226df0bcbff9a261b
