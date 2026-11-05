@@ -21,3 +21,4 @@ jobs:
     # The shared workflow verifies full routes, accepted fields, all MC/VIP/home card labels and RU fallback.
     # This repository holds only the caller; shared data and prices remain in adatours.ru.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
+# EN menu localization refresh 2026-11-05: canonical b58fb8065cd62b235e07ed89f88e5c9515379596
