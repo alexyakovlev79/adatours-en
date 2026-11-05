@@ -23,3 +23,4 @@ jobs:
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
 # EN menu localization refresh 2026-11-05: canonical b58fb8065cd62b235e07ed89f88e5c9515379596
 # 2026-11-05 EN menu locale fix from canonical commit 15cb315a963b302e5dc2804226df0bcbff9a261b
+# EN nav remaining Cyrillic diagnostic 2026-11-05 canonical 6da9d0bb1bd0b066b42aa211dbccf32843c1cc6f
