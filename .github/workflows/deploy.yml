@@ -1,4 +1,5 @@
 name: Ada Tours EN — publish from canonical Astro repository
+# EN manual refresh 2026-11-07: publish latest saved translation snapshot after parser compatibility pin.
 run-name: EN staging — canonical Ada Tours source
 on:
   push:
