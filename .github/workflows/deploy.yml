@@ -2,6 +2,7 @@ name: Ada Tours EN — publish from canonical Astro repository
 # EN manual refresh 2026-11-07: preserve canonical RU VIP grouping under translated titles.
 # EN manual refresh 2026-11-07: publish latest saved translation snapshot after parser compatibility pin.
 run-name: EN staging — canonical Ada Tours source
+# EN release request 2026-11-07: publish saved mass translations (review + ready) from staging; noindex, no QA.
 on:
   push:
     branches: [main]
