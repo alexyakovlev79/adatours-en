@@ -17,7 +17,7 @@ permissions:
   id-token: write
 concurrency:
   group: en-pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   refresh-needed:
     runs-on: ubuntu-latest
@@ -59,9 +59,9 @@ jobs:
           PY
   publish:
     needs: refresh-needed
-    if: ${{ false }} # PAUSED 2026-11-10 by owner's stop instruction; do not publish until expressly resumed
+    if: needs.refresh-needed.outputs.publish == 'true'
     # Publish immutable saved EN translations; independent editorial QA is deferred.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
 # EN publish request 2026-11-10: refresh all eligible saved translation packets from the latest staging SHA; retain noindex/RU fallback.
 # EN publish request 2026-11-10 #48: include three new completed packets after successful #47 snapshot 21abc4d.
-# Emergency pause after user withdrew EN publish request. Release must be explicitly resumed.
+# Publication resumed on explicit owner request 2026-11-10: publish all saved eligible English translations to noindex Pages.
