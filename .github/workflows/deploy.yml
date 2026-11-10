@@ -62,3 +62,4 @@ jobs:
     if: needs.refresh-needed.outputs.publish == 'true'
     # Publish immutable saved EN translations; independent editorial QA is deferred.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
+# EN publish request 2026-11-10: refresh all eligible saved translation packets from the latest staging SHA; retain noindex/RU fallback.
