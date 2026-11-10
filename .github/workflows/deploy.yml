@@ -84,3 +84,4 @@ jobs:
 # EN publish request 2026-11-10: refresh all eligible saved translation packets from the latest staging SHA; retain noindex/RU fallback.
 # EN publish request 2026-11-10 #48: include three new completed packets after successful #47 snapshot 21abc4d.
 # Publication resumed on explicit owner request 2026-11-10: publish all saved eligible English translations to noindex Pages.
+# EN source update 2026-11-10: restore the 11 whitespace-only Tour bodies from canonical c5b356d5883d05bf10394bcba04c0787c8a66e8f, without relaxing per-block SHA checks.
