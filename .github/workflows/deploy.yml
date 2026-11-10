@@ -57,6 +57,25 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf8') as target:
               target.write('publish='+str(publish).lower()+'\n')
           PY
+
+      - name: List stale English translations in the latest live receipt
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request
+          url='https://alexyakovlev79.github.io/adatours-en/translation-receipt.json'
+          try:
+              request=urllib.request.Request(url,headers={'User-Agent':'AdaTours-EN-source-diagnostic'})
+              with urllib.request.urlopen(request,timeout=20) as response:
+                  receipt=json.load(response)
+              stale=[{'id':x.get('sourceId'),'reason':x.get('reason'),'name':x.get('sourceName'),
+                      'collection':x.get('collection'),'source':x.get('sourceFingerprint')}
+                     for x in receipt.get('entries',[]) if x.get('status')=='stale']
+              print('ADA_STALE_SOURCE_ENTRIES='+json.dumps(stale,ensure_ascii=False))
+              print('ADA_TRANSLATION_COUNTS='+json.dumps(receipt.get('counts'),ensure_ascii=False))
+          except Exception as exc:
+              print('Stale receipt diagnostic unavailable: '+str(exc))
+          PY
   publish:
     needs: refresh-needed
     if: needs.refresh-needed.outputs.publish == 'true'
