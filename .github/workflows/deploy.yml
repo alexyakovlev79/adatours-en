@@ -88,3 +88,4 @@ jobs:
 # EN fulltext release 2026-11-12: deploy the 1,412 saved five-text packets from pinned staging, preserving noindex and RU source.
 # EN fulltext retry 2026-11-12: safe per-document source and Markdown validation, preserving noindex and original releases.
 # EN noindex release 2026-11-12: publish 87 repaired fulltext documents with exact immutable source evidence.
+# EN Schema.org noindex publishing request 2026-11-13: source c673683d89b119d14097f08eb933f627cd751b78; keep noindex, omit canonical/hreflang.
