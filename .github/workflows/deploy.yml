@@ -92,3 +92,4 @@ jobs:
 # EN stage8 verified rebuild 2026-11-13: publish validated JSON-LD across 6149 noindex pages; Stage6 pending alts remain report-only.
 # EN Stage 6.4 source-bound media translations: trigger noindex refresh from canonical main after 701 exact-source coverage verification (2026-11-13).
 # EN owner-requested full refresh 2026-11-13: canonical main d79dabc368395e9cd3dd8a09dd7c1c96f22d06d2 and translations 1f499f7a2c7634da3c06718c4074beb68f008b04; publish completed Stage 6/9, retain noindex.
+# EN Stage9 source-bound port release requested 2026-11-13: canonical source 9025801c2adb0721f4f58a751109f65a4dcd0107, translation staging 1f499f7a2c7634da3c06718c4074beb68f008b04; noindex, keep RU deploy separate.
