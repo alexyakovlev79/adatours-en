@@ -98,3 +98,4 @@ jobs:
 # EN Stage9 source-bound port release requested 2026-11-13: canonical source 9025801c2adb0721f4f58a751109f65a4dcd0107, translation staging 1f499f7a2c7634da3c06718c4074beb68f008b04; noindex, keep RU deploy separate.
 # Stage9 source-bound EN clean-up release (2026-11-13): source=85583b290b7bd2f764efc9b8209301a0adb575a8; approved translation staging=1f499f7a2c7634da3c06718c4074beb68f008b04; keep noindex and RU separate.
 # Stage 9 source-bound 147 exact strings: source=1cb3ecb235cc924996a19e2589147d66caecc7ef; EN preflight #43458780507 success (6149 pages, 7/7 browser); translation staging 1f499f7a2c7634da3c06718c4074beb68f008b04; retain noindex, no canonical/hreflang, no RU mutation.
+# EN Stage9 source-verified 82 SEO leads and 4 Google Maps labels: preflight 43593126863 success; canonical main a0e8f4f44748353a393118b90fe8695b95cfe02d (14.11.2026).
