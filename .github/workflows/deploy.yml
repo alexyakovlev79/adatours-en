@@ -81,6 +81,8 @@ jobs:
     if: needs.refresh-needed.outputs.publish == 'true'
     # Publish immutable saved EN translations; independent editorial QA is deferred.
     uses: alexyakovlev79/adatours.ru/.github/workflows/en-pages-reusable-deploy.yml@main
+    # Forward the EN Pages repository's Google Maps credentials to the reusable build.
+    secrets: inherit
 # EN publish request 2026-11-10: refresh all eligible saved translation packets from the latest staging SHA; retain noindex/RU fallback.
 # EN publish request 2026-11-10 #48: include three new completed packets after successful #47 snapshot 21abc4d.
 # Publication resumed on explicit owner request 2026-11-10: publish all saved eligible English translations to noindex Pages.
